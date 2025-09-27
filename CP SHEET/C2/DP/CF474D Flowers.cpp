@@ -25,7 +25,7 @@ int getArrangements(int level, int k, int n, vector<int> &memo){
     return memo[level] = count;
 }
 
-
+//*********Pattern = If your pattern is "query sum of a range repeatedly" → use prefix sum array.
 vector<int> getArrangementsDP(int k, int n){
     vector<int> dp(n + 1, 0);
     
