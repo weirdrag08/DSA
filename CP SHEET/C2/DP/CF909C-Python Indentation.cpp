@@ -82,8 +82,8 @@ int getWaysToIndent(int level, int idx, vector<char> &statements, vector<vector<
 }
 
 //O(N^3) as number of states = N^2, worst case calculation in each state = O(N)
-//O(N^2) as number of states = N^2, calculation per state O(1) (CUMULATIVE SUM MARKING is O(1)) 
-//V.V.V.V.IMPORTANT
+//O(N^2) as number of states = N^2, calculation per state O(1) (CUMULATIVE SUM MARKING is O(1))
+//V.V.V.V.IMPORTANT:
 /*
 If your pattern is "add to whole range repeatedly" → use cumulative sum marking.
 
