@@ -49,7 +49,7 @@ f{
 }
 s; (last statement at level - 3, as compared to to previous statement)
 
-If the current statment is 's', then any next statement could be at: {level, level - 1, level - 2} NOT JUST {level, level - 1}. 
+If the current statment is 's', then any next statement could be at: {level, level - 1, level - 2...0} NOT JUST {level, level - 1}. 
 
 */
 //T.C = O(N^3), N^2 unique states, O(N) loop in each state  
