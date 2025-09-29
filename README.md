@@ -18,6 +18,11 @@ Much better way to think, as it can be optimised efficiently, as it creates MANY
 Assigning more things, gives each of thing / elements only 2 option: Either be assigned or not
 #### RECURSIVELY SOLUTION POSSIBLE , VERY GOOD FOR DP
 
+INTUITIVE THINKING: 
+If you have to assign more things to less people OR more boxes to less balls (IFF. there is 1 - 1 mapping, i.e. each person get only 1 item), it is obvious that some things will be left unassigned as #things > #people. So for this to happen, each element will have a choice to be assigned or not, which builds the choice diagram tree or inc/exc tree.
+
+If you have to assign less people to more things or less balls to more boxes, each person will have a choice to pick which item, OR each ball will have a choice to go to which box. Which essentially generates permutations or permutation tree.
+
 **IMPORTANT VIDEO REFERENCE** 
 #### {FUCKING CRAZY DO WATCH THIS, NEVER REALISED WHAT THE IMPORTANCE OF THOSE PERMUATION COMBINATION VIDEOS WERE & HOW IMPORTANT THEY ARE TO WRITE GOOD VS BAD DP SOLUTION}
 
