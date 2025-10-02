@@ -108,6 +108,21 @@ recurse(dish, time) -                                    |------------ recurse(d
                                                          |
                                                          |------------- recurse(dish, time + 2)
 
+
+
+**Recursive call stack (diagram)**
+
+```mermaid
+graph TD
+    A["recurse(dish, time)"] --> B["recurse(dish + 1, time + 1)"]
+    A --> C["recurse(dish, time + 1)"]
+
+    B --> D["recurse(dish + 2, time + 2)"]
+    B --> E["recurse(dish + 1, time + 2)"]
+
+    C --> F["recurse(dish + 1, time + 2)"]
+    C --> G["recurse(dish, time + 2)"]
+
                               
 
 
