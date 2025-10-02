@@ -73,11 +73,11 @@ graph LR
     E --> F["Base case: all dishes processed"]
 ```
 
-
 DP not possible, bad dp because less overlap between subproblems because state tracking will be a part of memo key.
 
 
 **2nd Method**
+
 Assign more to less => Assign time slot to EACH dish => Ask, DO WE TAKE OUT THE CURRENT DISH OR NOT, at timeslot T.
 Generates choices for timeslots, => "iss current time T pe current dish D nikalu ya na nikalu?"
 MEMO KEY => memo(dish, time)
