@@ -65,6 +65,17 @@ for([state array] from 1 : M){
 **Recursive call stack ->**
 recurse(dish, [A]) -> recurse(dish + 1, [A]) -> recurse(dish + 2, [A])... (dish + (n - 1), [A]) {base case reached as all dishes processed}
 
+**Recursive call stack (Method 1)**
+
+```mermaid
+graph LR
+    A["recurse(dish, [A])"] --> B["recurse(dish + 1, [A])"]
+    B --> C["recurse(dish + 2, [A])"]
+    C --> D["..."]
+    D --> E["recurse(dish + (n - 1), [A])"]
+    E --> F["{base case reached as all dishes processed}"]
+
+
 DP not possible, bad dp because less overlap between subproblems because state tracking will be a part of memo key.
 
 
