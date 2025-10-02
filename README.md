@@ -62,9 +62,6 @@ for([state array] from 1 : M){
   try timeslot M
 }
 
-**Recursive call stack ->**
-recurse(dish, [A]) -> recurse(dish + 1, [A]) -> recurse(dish + 2, [A])... (dish + (n - 1), [A]) {base case reached as all dishes processed}
-
 **Recursive call stack (Method 1)**
 
 ```mermaid
@@ -80,7 +77,7 @@ graph LR
 DP not possible, bad dp because less overlap between subproblems because state tracking will be a part of memo key.
 
 
-2nd Method
+**2nd Method**
 Assign more to less => Assign time slot to EACH dish => Ask, DO WE TAKE OUT THE CURRENT DISH OR NOT, at timeslot T.
 Generates choices for timeslots, => "iss current time T pe current dish D nikalu ya na nikalu?"
 MEMO KEY => memo(dish, time)
@@ -99,28 +96,6 @@ recurse(dish + 1, time + 1);
 recurse(dish, time + 1);
 }
 
-**Recursive call stack->**
-
-
-                                                          |----------- recurese(dish + 2, time + 2)
-                                                          |
-                                                          |
-                    |---- recurse(dish + 1, time + 1) -----
-                    |                                     |
-                    |                                     |
-                    |                                     |----------- recurse(dish + 1, time + 2)
-                    |
-                    |
-recurse(dish, time) -                                    |------------ recurse(dish + 1, time + 2)
-                    |                                    |
-                    |                                    |
-                    |                                    |
-                    |------recurse(dish, time + 1)-------|
-                                                         |
-                                                         |
-                                                         |------------- recurse(dish, time + 2)
-
-
 
 **Recursive call stack (diagram)**
 
@@ -134,7 +109,7 @@ graph TD
 
     C --> F["recurse(dish + 1, time + 2)"]
     C --> G["recurse(dish, time + 2)"]
-
+```
                               
 
 
