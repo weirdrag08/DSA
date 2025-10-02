@@ -73,8 +73,7 @@ graph LR
     B --> C["recurse(dish + 2, [A])"]
     C --> D["..."]
     D --> E["recurse(dish + (n - 1), [A])"]
-    E --> F["{base case reached as all dishes processed}"]
-
+    E --> F["Base case: all dishes processed"]
 
 
 DP not possible, bad dp because less overlap between subproblems because state tracking will be a part of memo key.
