@@ -15,14 +15,14 @@ using namespace std;
 //Logically why this works is simple, MEDIAN IS MIDDLE ELEMENT IN THE SORTED ORDER
 //PQ SORTS THE ELEMENT
 /*
-LEFT  (MAX_HEAP) - [1, 2, 4, 8] => top = 8
+LEFT  (MAX_HEAP) - [8, 4, 2, 1] => top = 8
 RIGHT (MIN_HEAP) - [12, 16, 19, 40, 45] => top = 12
 RIGHT_SIZE > LEFT_SIZE, so ans = 12
 
 [1, 2, 4, 8* | 12*, 16, 19, 40, 45]
 
 As the left is MAX_HEAP it keeps top = 8, and the right is MIN_HEAP it keeps top = 12
-IMPORTANT: So the TOPS of the respective heaps maintain the CLOSEST VALUE on EITHER SIDE of PARTITION, then the ELEMENTS LYING ON THE PARTITION/BOUNDARY BETWEEN THEM, is close to median WHEN both the heaps are BALANCED in nature (size difference <= 1)
+IMPORTANT: So the TOPS of the respective heaps maintain the CLOSEST VALUE on EITHER SIDE of PARTITION, then the ELEMENTS LYING ON THE BOUNDARY / ELEMENTS LYING BETWEEN THE HALVES, is close to median WHEN both the heaps are BALANCED in nature (size difference <= 1)
 
 One heap(left) is keeping track of elements below the median and the other heap(right) is keeping track of elements above the median.
 
