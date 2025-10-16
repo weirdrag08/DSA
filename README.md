@@ -136,18 +136,17 @@ Depending on *how the subarray property behaves*, we use one of two main tools:
 
 ## 🧠 Deep Intuition Behind Prefix Sum + HashMap
 
----
-
 ### 🧮 The Tiny Algebraic Core
 
 Define **P[i]** = some prefix function of the array up to index *i* (usually inclusive).  
 Common choices include:
 
 | Type | Definition | Symbolic form |
-|-------|-------------|----------------|
-| 🧾 Prefix Sum | \( P[i] = \text{sum of } nums[0..i] \) | additive |
-| 🔢 Prefix Count | \( P[i] = \text{count of odd numbers in } nums[0..i] \) | additive |
-| ⚡ Prefix XOR | \( P[i] = \text{xor of } nums[0..i] \) | bitwise |
+|------|------------|---------------|
+| 🧾 Prefix Sum    | P[i] = sum of nums[0..i] | additive |
+| 🔢 Prefix Count  | P[i] = count of odd numbers in nums[0..i] | additive |
+| ⚡ Prefix XOR    | P[i] = xor of nums[0..i] | bitwise |
+
 
 ---
 
