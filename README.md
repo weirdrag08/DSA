@@ -153,13 +153,11 @@ Common choices include:
 
 #### 🧩 Key Identity (for any subarray [l..r]):
 
-\[
-\text{property\_of\_subarray}(l..r) = 
-\begin{cases}
-P[r] - P[l-1], & \text{for additive prefix functions} \\
-P[r] \oplus P[l-1], & \text{for xor-based properties}
-\end{cases}
-\]
+| Type | Property of subarray [l..r] |
+|------|-----------------------------|
+| Additive prefix | P[r] − P[l−1] |
+| XOR prefix      | P[r] ⊕ P[l−1] |
+
 
 That is:
 
@@ -181,6 +179,7 @@ So, for each `r`, you only need to know **how many previous prefixes** have valu
 A **hashmap** (frequency map) that stores counts of prefix values answers that in **O(1)** time —  
 no window shrinking, no scanning, just direct algebraic lookup.
 
+---
 
 Imagine an array:
 
@@ -188,7 +187,7 @@ Imagine an array:
 
 We want to know if there exists a subarray with **sum = 7**.
 
----
+
 
 ### 🧩 Step 1: Define the Prefix
 
