@@ -169,9 +169,7 @@ That is:
 
 If you want subarrays whose property equals a target **K**, then:
 
-\[
-P[r] - P[l-1] = K \quad \Rightarrow \quad P[l-1] = P[r] - K
-\]
+P[r] - P[l-1] = K  ⇒  P[l-1] = P[r] - K
 
 So, for each `r`, you only need to know **how many previous prefixes** have value `P[r] - K`.
 
