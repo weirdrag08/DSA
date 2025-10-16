@@ -206,13 +206,12 @@ for (int x : nums) {
 
 ```mermaid
 graph LR
-    A[Start] --> B[Compute prefix sum p[r]]
-    B --> C{Have we seen (p[r] - K)?}
-    C -->|Yes| D[✅ Subarray [l, r] with sum K]
-    C -->|No| E[Store p[r] in HashMap]
-    D --> F[Continue loop]
+    A["Start"] --> B["Compute prefix sum p[r]"]
+    B --> C{"Have we seen (p[r] - K) ?"}
+    C -->|Yes| D["Subarray [l, r] satisfies p[r] - p[l-1] = K"]
+    C -->|No| E["Store p[r] in HashMap"]
+    D --> F["Continue loop"]
     E --> F
-
 ```
 You’re not tracking a “window”; you’re tracking states of cumulative progress
 and checking if the current state “connects back” to a previously seen state
