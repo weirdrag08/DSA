@@ -1,5 +1,5 @@
 class Solution {
-public:
+public: 
 
     //max Difficulty achievable is #jobs = 300, and each job[i] is 1000, and we do 1 job each day
     // there are at max 10 days, and any batch can have max difficulty of 1000
