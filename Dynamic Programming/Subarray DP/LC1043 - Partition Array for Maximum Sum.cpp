@@ -1,5 +1,5 @@
 class Solution {
-public:
+public: 
     int getMaxSumDP(int k, vector<int> &arr){
         int n = arr.size();
         vector<int> dp(n + 1, 0);
