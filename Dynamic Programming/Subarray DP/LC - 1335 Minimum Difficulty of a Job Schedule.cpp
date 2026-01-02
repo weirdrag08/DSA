@@ -1,6 +1,12 @@
+/*
+TYPE I - Check PREFIX VALIDITY + CALL ON SUFFIX (creates partitions)
+IMPORTANT - HOW TO TRAVERSE IN BOTTOM UP FASHION
+//CHECK BASE CASE to attain the direction of primary var (here i/idx)
+//So FOREACH(Primary Var loop) in valid direction, loop rest of the variables to mimic recursion effect. 
+//To ATTAIN the DIRECTION of rest of the loops, simply check the recursion calls (i.e they depend on which state), fill in the order such that the current state can ALWAYS LOOK THEM UP
+*/
 class Solution {
 public: 
-
     //max Difficulty achievable is #jobs = 300, and each job[i] is 1000, and we do 1 job each day
     // there are at max 10 days, and any batch can have max difficulty of 1000
     // 1000 * 10 = 10000
