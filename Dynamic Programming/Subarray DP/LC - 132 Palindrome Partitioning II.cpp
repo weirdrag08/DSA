@@ -1,5 +1,5 @@
 class Solution {
-public:
+public: 
     const int INF = 1e9;
     bool isPalindrome(int i, int j, string &s, vector<vector<bool> > &memo){
         if(i >= j){
