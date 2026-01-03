@@ -1,22 +1,52 @@
 class Solution {
-public: 
+public:
     const int INF = 1e9;
-    bool isPalindrome(int i, int j, string &s, vector<vector<bool> > &memo){
-        if(i >= j){
-            if(i == j){
-                return memo[i][j] = true;
+    vector<vector<bool> > isPalindromeDP(string &s){
+        int n = s.size();
+        vector<vector<bool> > dp(n, vector<bool>(n, false));
+
+        //base case
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                //Empty strings and 1 length string all palindromes
+                if(i >= j){
+                    dp[i][j] = true;
+                }
             }
-            return true;
         }
-        if(memo[i][j]){
-            return memo[i][j];
+
+        for(int i = n - 1; i >= 0; i--){
+            for(int j = 0; j < n; j++){
+                //valid substring s.substr(i, j - i + 1)
+                if(i < j){
+                    bool palindrome = false;
+                    if(s[i] == s[j]){
+                        palindrome = dp[i + 1][j - 1];
+                    }
+                    dp[i][j] = palindrome;
+                }
+            }
         }
-        bool palindrome = false;
-        if(s[i] == s[j]){
-            palindrome = isPalindrome(i + 1, j - 1, s, memo);
+        return dp;
+    }
+    
+    int minimumCutsDP(string &s, vector<vector<bool> > &palindromes){
+        int n = s.size();
+        vector<int> dp(n + 1, -1);
+
+        //base case
+        dp[n] = 0;
+
+        for(int i = n - 1; i >= 0; i--){
+            int count = INF;
+            for(int j = i; j < n; j++){
+                if(palindromes[i][j]){
+                    count = min(count, (j + 1) == n ? 0 : 1 + dp[j + 1]);
+                }
+            }
+            dp[i] = count;
         }
-        
-        return memo[i][j] = palindrome;
+        return dp[0];
     }
 
     int minimumCuts(int idx, string &s, vector<vector<bool> > &palindromes, vector<int> &memo){
@@ -43,16 +73,10 @@ public:
     int minCut(string s) {
         int n = s.size();
 
-        //Precomputation O(N^2)
-        vector<vector<bool> > palindromes(n, vector<bool>(n, false));
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++){
-                if(i <= j){
-                    bool palindrome = isPalindrome(i, j, s, palindromes);
-                }
-            }
-        }
-        vector<int> memo(n, -1);
-        return minimumCuts(0, s, palindromes, memo);
+        //Precomputation O(N^2) - Precompute all the palindromic substrings, to compute prefix validity in O(1)
+        vector<vector<bool> > palindromes = isPalindromeDP(s);
+        // vector<int> memo(n, -1);
+        // return minimumCuts(0, s, palindromes, memo);
+        return minimumCutsDP(s, palindromes);
     }
 };
