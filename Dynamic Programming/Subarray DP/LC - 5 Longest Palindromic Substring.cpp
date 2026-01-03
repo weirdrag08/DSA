@@ -1,5 +1,5 @@
 class Solution {
-public:
+public: 
 
     bool isPalindrome(int i, int j, string &s, vector<vector<bool> > &palindrome){
         if(i >= j){
