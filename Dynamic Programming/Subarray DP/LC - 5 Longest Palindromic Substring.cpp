@@ -1,5 +1,31 @@
 class Solution {
 public: 
+    
+    vector<vector<bool> > isPalindromeDP(string &s){
+        int n = s.size();
+        vector<vector<bool> > dp(n, vector<bool>(n, false));
+        
+        //base case
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(i >= j){
+                    dp[i][j] = true;
+                }
+            }
+        }
+        
+        
+        for(int i = n - 1; i >= 0; i--){
+            for(int j = 0; j < n; j++){
+                if(i < j){
+                    if(s[i] == s[j]){
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                }
+            }
+        }
+        return dp;
+    }
 
     bool isPalindrome(int i, int j, string &s, vector<vector<bool> > &palindrome){
         if(i >= j){
