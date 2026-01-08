@@ -356,6 +356,7 @@ If a problem requires building two subsequences of equal length and
 each element of one is paired with exactly one element of the other
 in order,
 then it belongs to the LCS-family of dynamic programming problems.
+**Good Beginner Variant** - https://leetcode.com/problems/max-dot-product-of-two-subsequences/
 
 ---
 
