@@ -359,7 +359,113 @@ then it belongs to the LCS-family of dynamic programming problems.
 **Good Beginner Variant** - https://leetcode.com/problems/max-dot-product-of-two-subsequences/
 
 ---
+## JUMP DP / DP + Binary Search
+Why all valid paths are still considered
 
+My doubt
+
+After choosing a pair (a, b) at index i, I compute:
+
+nextIdx = first index j such that pairs[j][0] > b
+
+
+Now, all indices j ≥ nextIdx are valid choices.
+
+What I was unsure about was this:
+
+What if I jump to a nextIdx where a is small but b is very large?
+
+That large b could reduce the chances of picking further pairs.
+
+Am I missing better chains by not explicitly trying all j ≥ nextIdx?
+
+My own reasoning
+
+I realized that even if I jump to nextIdx, I am not forced to take it.
+
+From nextIdx, DP again has two choices:
+
+include
+
+exclude
+
+So if pairs[nextIdx] is a bad choice (because its b is too large), the DP can simply exclude it.
+
+Excluding at nextIdx would be equivalent to moving to nextIdx + 1, which is the same as if I had directly tried that index from the original position.
+
+So all valid future indices are still reachable.
+
+Restating why this reasoning is correct
+
+This intuition is exactly right.
+
+Jumping to nextIdx does not mean choosing that pair.
+It only means entering the valid region.
+
+Formally:
+
+1 + dp[nextIdx]
+= max over all valid j ≥ nextIdx of (1 + dp[j])
+
+
+Even if pairs[nextIdx] has a horrible b and ruins future extensions:
+
+DP will exclude it
+
+try dp[nextIdx + 1]
+
+then dp[nextIdx + 2]
+
+and so on
+
+No valid chain is skipped.
+
+Visual intuition
+
+After choosing index i:
+
+i   x   x   x   |   j1   j2   j3   j4 ...
+                 ^
+               nextIdx
+
+
+x → invalid (a ≤ b)
+
+j1, j2, j3... → valid
+
+By jumping to j1:
+
+I am not committing to j1
+
+I am only entering the valid zone
+
+Inside that zone, DP still decides:
+
+include j1
+
+or exclude and go to j2
+
+or exclude again and go to j3
+
+…
+
+So no valid option is lost.
+
+Key sentence (validated)
+
+“If I exclude after going to nextIdx, it would be the same as going to nextIdx + 1 from the current index.”
+
+This is the exact invariant that makes Jump DP / DP + Binary Search correct.
+
+Final takeaway
+
+Binary search only skips provably invalid states
+
+Inclusion + exclusion guarantees all valid paths
+
+Jumping sets a boundary, not a decision
+
+This is a safe and standard Jump DP optimization
 
    
 
