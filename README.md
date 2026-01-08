@@ -360,6 +360,7 @@ then it belongs to the LCS-family of dynamic programming problems.
 
 ---
 ## JUMP DP / DP + Binary Search
+(problem discussed = LC 646 (Maximum Length of Pair Chain))
 Why all valid paths are still considered
 
 My doubt
