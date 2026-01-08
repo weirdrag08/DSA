@@ -339,10 +339,25 @@ think of **two-pointer** as *living inside* the current valid state.
 
 ---
 
+---
 
+## 🧠 LCS-Family DP Trigger (Short Rule)
+Whenever a problem asks for subsequences and
+forces a 1–1 operation between two sequences in order
+(match / multiply / cost / score),
+use LCS-style recursion:
 
+• skip left
+• skip right
+• take both
 
+## 🧠 LCS-Family DP Trigger (Formal Rule)
+If a problem requires building two subsequences of equal length and
+each element of one is paired with exactly one element of the other
+in order,
+then it belongs to the LCS-family of dynamic programming problems.
 
+---
 
 
    
