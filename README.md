@@ -468,7 +468,7 @@ Jumping sets a boundary, not a decision
 
 This is a safe and standard Jump DP optimization
 
-   
+https://leetcode.com/problems/maximum-profit-from-valid-topological-order-in-dag/solutions/6689419/javacpython-mask-dp-by-lee215-pfmk/ (solve questions in this link, remove after solving)
 
 
 
