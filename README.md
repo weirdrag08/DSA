@@ -476,7 +476,7 @@ https://leetcode.com/problems/maximum-profit-from-valid-topological-order-in-dag
 1) Good Beginner Question - [LC 1266. Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points/description/)
 DO READ [LC OFFICIAL EDITORIAL](https://leetcode.com/problems/minimum-time-visiting-all-points/editorial/), good for developing template for greedy problems, how to distinguish between greedy and dp.
 
-For this questions my thoughts, were if there were OPTIONS to jump to some other point (not having to follow restriction to visit all points in order), then we could have used dp, as there would be options for each point on where to go next such that it minimises the total time. But because of the order property, we don't have any options, so recursion tree would be linear and not branched, so no point of optimising a linear tree (factorial recursion)
+For this questions my thoughts, were if there were OPTIONS to jump to some other point (not having to follow restriction to visit all points in order), then we could have used dp, as there would be options for each point on where to go next such that it minimises the total time. But because of the order property, we don't have any options, so recursion tree would be linear and not branched, so no point of optimising a linear tree (factorial recursion)\
 /*
 GREEDY APPROACH - Move diagonally as much as possible
 Because we have to visit each point in ORDER, if we consider each pair of adjacent points as a segment, each segment is entirely independent. 
