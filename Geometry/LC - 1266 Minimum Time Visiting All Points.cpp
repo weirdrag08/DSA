@@ -1,5 +1,12 @@
 class Solution {
 public:
+/*
+GREEDY APPROACH - Move diagonally as much as possible
+Because we have to visit each point in ORDER, if we consider each pair of adjacent points as a segment, each segment is entirely independent. 
+Our decisions within the current segment do not affect the decisions in other segments. 
+Therefore, the optimal solution for this problem consists of the optimal solutions for each individual segment. 
+To solve this problem, the first thing we need to determine is the optimal strategy for moving between adjacent points.
+*/
     int minTimeToVisitAllPoints(vector<vector<int>>& points) {
         int time = 0;
         for(int i = 0; i < points.size() - 1; i++){
