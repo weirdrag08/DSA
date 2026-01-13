@@ -468,7 +468,26 @@ Jumping sets a boundary, not a decision
 
 This is a safe and standard Jump DP optimization
 
+### Original question for BITMASK and other good DP questions in link
 https://leetcode.com/problems/maximum-profit-from-valid-topological-order-in-dag/solutions/6689419/javacpython-mask-dp-by-lee215-pfmk/ (solve questions in this link, remove after solving)
 
+
+## GREEDY PROBLEMS (INTUITION, PROBLEMS, EXPLANATIONS & VIDEOS)
+1) Good Beginner Question - [LC 1266. Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points/description/)
+DO READ [LC OFFICIAL EDITORIAL](https://leetcode.com/problems/minimum-time-visiting-all-points/editorial/), good for developing template for greedy problems, how to distinguish between greedy and dp.
+
+For this questions my thoughts, were if there were OPTIONS to jump to some other point (not having to follow restriction to visit all points in order), then we could have used dp, as there would be options for each point on where to go next such that it minimises the total time. But because of the order property, we don't have any options, so recursion tree would be linear and not branched, so no point of optimising a linear tree (factorial recursion)
+/*
+GREEDY APPROACH - Move diagonally as much as possible
+Because we have to visit each point in ORDER, if we consider each pair of adjacent points as a segment, each segment is entirely independent. 
+Our decisions within the current segment do not affect the decisions in other segments. 
+Therefore, the optimal solution for this problem consists of the optimal solutions for each individual segment. 
+To solve this problem, the first thing we need to determine is the optimal strategy for moving between adjacent points.
+*/
+
+Think of some greedy strategy first, here - move diagonally as much as possible, to come up with this, see test cases, make diagrams, often these are the INTRUSIVE THOUGHTS (diagonal increases both row & column by 1, where as the straight moves only increase either dimension by 1, SO PROFITABLE IF USED OPTIMALLY).
+INTRUSIVE THOUGHTS - SO PROFITABLE IF USED OPTIMALLY
+
+Then see if based on some problem constraint, if you follow this approach for current pair, would it affect the future (DP)/would it affect the decisions for other pairs/segments/points/intervals? If NO, then we could choose optimally for each pair/segment/interval individually, which is greedy only.
 
 
