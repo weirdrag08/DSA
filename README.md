@@ -472,6 +472,14 @@ This is a safe and standard Jump DP optimization
 https://leetcode.com/problems/maximum-profit-from-valid-topological-order-in-dag/solutions/6689419/javacpython-mask-dp-by-lee215-pfmk/ (solve questions in this link, remove after solving)
 
 
+## 2 Heap Problems (Simulation, Scheduling etc)
+1) [LC 295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) (Online input, simulating an ordered sequence element in two balanced halves)!
+
+2) [LC 2402 Meeting Rooms III](https://leetcode.com/problems/meeting-rooms-iii/description/) (Scheduling Problem)
+About this problem - [Read this excellent conversation between me and GPT](https://chatgpt.com/share/6967cf2f-2af0-8012-abef-7ea80d16923a)
+
+
+
 ## GREEDY PROBLEMS (INTUITION, PROBLEMS, EXPLANATIONS & VIDEOS)
 1) Good Beginner Question - [LC 1266. Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points/description/)
    
