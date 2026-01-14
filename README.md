@@ -478,6 +478,9 @@ https://leetcode.com/problems/maximum-profit-from-valid-topological-order-in-dag
 2) [LC 2402 Meeting Rooms III](https://leetcode.com/problems/meeting-rooms-iii/description/) (Scheduling Problem)
 About this problem - [Read this excellent conversation between me and GPT](https://chatgpt.com/share/6967cf2f-2af0-8012-abef-7ea80d16923a)
 
+Chat CRUX - 
+![2 Heap Scheduling Method and Explanation](/images/2HeapSchedulingMethod.png)
+
 
 
 ## GREEDY PROBLEMS (INTUITION, PROBLEMS, EXPLANATIONS & VIDEOS)
