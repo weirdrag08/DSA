@@ -480,10 +480,10 @@ About this problem - [Read this excellent conversation between me and GPT](https
 
 #### Chat CRUX - 
 <p align="center">
-<img src="Images/2HeapSchedulingMethod2.png" width="50%" alt="2 Heap Scheduling Trigger">
+<img src="Images/2HeapSchedulingMethod2.png" width="30%" alt="2 Heap Scheduling Trigger">
 </p>
 <p align="center">
-<img src="Images/2HeapSchedulingMethod.png" width="50%" alt="2 Heap Scheduling comparison with fixed ordering">
+<img src="Images/2HeapSchedulingMethod.png" width="30%" alt="2 Heap Scheduling comparison with fixed ordering">
 </p>
 
 
