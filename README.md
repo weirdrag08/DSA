@@ -479,7 +479,7 @@ https://leetcode.com/problems/maximum-profit-from-valid-topological-order-in-dag
 About this problem - [Read this excellent conversation between me and GPT](https://chatgpt.com/share/6967cf2f-2af0-8012-abef-7ea80d16923a)
 
 Chat CRUX - 
-![2 Heap Scheduling Method and Explanation](images/2HeapSchedulingMethod.png)
+![2 Heap Scheduling Method and Explanation](Images/2HeapSchedulingMethod.png)
 
 
 
