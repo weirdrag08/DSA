@@ -1,6 +1,49 @@
 class Solution {
 public:
+    /*
+    You now own this idea:
 
+Overlap = interval intersection on each axis
+Square size = min(overlap width, overlap height)
+
+This is not “just one problem”.
+
+This unlocks:
+
+rectangle intersection
+
+union area
+
+collision detection
+
+skyline problems
+
+packing problems
+
+many computational geometry tasks
+
+This pain pays dividends.
+
+How to think about geometry going forward (this will help)
+
+When you see a geometry problem, ask only these three questions first:
+
+1️⃣ What are the intervals on x?
+2️⃣ What are the intervals on y?
+3️⃣ What invariant survives all configurations?
+
+If you ever start writing:
+
+more than 2–3 if branches
+
+corner-based logic
+
+“if this point lies inside”
+
+👉 STOP
+You’re going the hard way.
+    
+    */
     long long largestSquareArea(vector<vector<int>>& bottomLeft, vector<vector<int>>& topRight) {
         int maxSide = 0;
         for(int i = 0; i < bottomLeft.size(); i++){
