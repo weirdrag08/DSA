@@ -472,6 +472,38 @@ This is a safe and standard Jump DP optimization
 https://leetcode.com/problems/maximum-profit-from-valid-topological-order-in-dag/solutions/6689419/javacpython-mask-dp-by-lee215-pfmk/ (solve questions in this link, remove after solving)
 
 
+### GEOMETRY
+[3047. Find the Largest Area of Square Inside Two Rectangles](https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/description/)
+About this above question keep in mind
+VVVVVVVVVVV IMPORTANT
+**Overlap = interval intersection on each axis
+Square size = min(overlap width, overlap height)**
+Similar concepts are used geometry problems such as in:
+rectangle intersection
+union area
+collision detection
+skyline problems
+packing problems
+
+In general:
+When you see a geometry problem, ask only these three questions first:
+
+1️⃣ What are the intervals on x?
+2️⃣ What are the intervals on y?
+3️⃣ What invariant survives all configurations?
+
+If you ever start writing:
+
+more than 2–3 if branches
+
+corner-based logic
+
+“if this point lies inside”
+
+👉 STOP
+
+
+
 ## 2 Heap Problems (Simulation, Scheduling etc)
 1) [LC 295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) (Online input, simulating an ordered sequence element in two balanced halves)!
 
