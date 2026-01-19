@@ -540,3 +540,18 @@ INTRUSIVE THOUGHTS - SO PROFITABLE IF USED OPTIMALLY
 Then see if based on some problem constraint, if you follow this approach for current pair, would it affect the future (DP)/would it affect the decisions for other pairs/segments/points/intervals? If NO, then we could choose optimally for each pair/segment/interval individually, which is greedy only.
 
 
+## GRAPH THOUGHTS
+#### Topological Ordering
+If you process/traverse in topological order, it means 3 things:
+_u_ -> _v_ (stop thinking in terms of edge, it just represents a direction where information will flow from, it just tells you what you would know on any node, either you will know all the nodes dependent on your current node(u -> v), or all the true prerequisites of current node (u <- v))
+Generally:
+1) In graphs, u -> v, for a node u, you remember what all nodes are dependent(all Vi) on current node u, what nodes you could reach from u. So answer is forward filled, if you know the optimal answer for u, you could forward fill all the nodes that are dependent on the current node u. Once forming it's own optimal answer, Node u could provide it's contribution and help other nodes(all Vi, that are reachable from u, i.e. all Vi whose answer can be impacted by node u) fill their answer. So every node will forward fill the dependent nodes, so for a node _v_ all it's prerequisites (_Ui_) would have forward filled v during the iteration, and v would choose it's optimal answer among them. So the best optimal answer among all (_Ui_) wrt to v, will be stored by v
+
+2) In DP, u <- v, for a node v, you remember all the true prerequisites, i.e (all Ui) for the current node v.
+  True Prerequisites, are all the nodes Ui, that can reach v, i.e. all the nodes that can impact the optimal answer for node v. So for a current node v, we know what all nodes can help build it's answer, if they know theirs.
+  
+1) topological terms: For any node _v_ , all it's prerequisites will be processed before v.
+2) Graph Thought: for a node v, the answer of v can be modified by all those nodes (_Ui_) which can reach v. All those nodes which could reach the current node v(all the paths incoming to v, will start from any of the true prerequisites of v only), i.e. the true prerequisites of v, are the nodes that help node v, formulate it's answer.
+3) DP thought: for a node v, we know all _Ui_ that are the true prerequisties of v, so before v could formulate it's own optimal answer, we need to make sure that every true prerequisite (_Ui_) should have it's optimal answer. (Basic dp terminolgy, for a state to have it's optimal answer, all the states that it depends on, should have their own optimal answer, among them lies the best answer for v)
+
+
