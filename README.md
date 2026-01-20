@@ -551,7 +551,38 @@ Generally:
   True Prerequisites, are all the nodes Ui, that can reach v, i.e. all the nodes that can impact the optimal answer for node v. So for a current node v, we know what all nodes can help build it's answer, if they know theirs.
   
 1) topological terms: For any node _v_ , all it's prerequisites will be processed before v.
-2) Graph Thought: for a node v, the answer of v can be modified by all those nodes (_Ui_) which can reach v. All those nodes which could reach the current node v(all the paths incoming to v, will start from any of the true prerequisites of v only), i.e. the true prerequisites of v, are the nodes that help node v, formulate it's answer.
-3) DP thought: for a node v, we know all _Ui_ that are the true prerequisties of v, so before v could formulate it's own optimal answer, we need to make sure that every true prerequisite (_Ui_) should have it's optimal answer. (Basic dp terminolgy, for a state to have it's optimal answer, all the states that it depends on, should have their own optimal answer, among them lies the best answer for v)
+2) Graph Terms: for a node v, the answer of v can be modified by all those nodes (_Ui_) which can reach v. All those nodes which could reach the current node v(all the paths incoming to v, will start from any of the true prerequisites of v only), i.e. the true prerequisites of v, are the nodes that help node v, formulate it's answer.
+3) DP Terms: for a node v, we know all _Ui_ that are the true prerequisties of v, so before v could formulate it's own optimal answer, we need to make sure that every true prerequisite (_Ui_) should have it's optimal answer. (Basic dp terminolgy, for a state to have it's optimal answer, all the states that it depends on, should have their own optimal answer, among them lies the best answer for v)
+
+What DP and topological order have in common?
+** Following Topological order, traversing/processing in Topo order **guarantees** that **prerequistes will be processed before the dependents**
+
+It guarantees, for any node that is to be processed, it's prerequisites have already been processed iff we traverse/compute/fill answers following topological order.
+
+So if we fill answers in topological order using the topological order array, it is guaranteed that the nodes that can affect the answer of node v, have already found their optimal answers.
+
+Topological order array is the representation of DP recursion tree (in tree, the edges are directed from node(v) to prerequisites(Ui)).
+
+Left side of the array contains the prerequisites of the nodes that are on the right.
+
+Processing/Traversing can be done in 2 ways: **Iteratively** or **Recursively**
+
+In graphs we have the edges of the form (u -> v), we know the nodes _Vi_ that our prerequisite _u_ is going to affect, that's why incase of graphs, we use Iteration (loop) on the topological order array, because we know that if compute the optimal answer for current node _u_ , we can forward fill u's contribution in all nodes that are dependent on it.
+
+In DP, the direction flips, i.e. (u <-v), we know all the prerequisites for a node v, all those nodes who need to compute their optimal answer before v can compute it's own optimal answer. Among them, lies the optimal answer for v.
+Simply the tree diagram of recursive tree, where for a state _v_ , we transition to all subproblems _Ui_ and compute it's answer first and then compute v's answer.
+
+
+DP requires partial ordering of items and so as the topological order. Partial order simply means the recursive tree have a certain direction attached to it, IF YOU SERIALIZE THE TREE IN THE FORM OF AN ARRAY, YOU WILL GET THE PARTIAL ORDER. THE NODES THAT ARE DIRECTLY UNDER THE SUBTREE(Ui) OF A NODE, let's say 'v' ARE ORDERED AS THERE ARE BOUNDED IN PREREQUISITE <-> DEPENDENCY order/property and will come before v in that serialized array, but the nodes before 'v' in the array which are not in the subtree of 'v' are not bounded to v, as v's answer will not be affected by those nodes. So they are just before 'v', not because they were the prerequisites that needed to be computed, but because of the serialization. So that forms the partial ordering of nodes. 
+In graph, Topo order array is simply partial ordered set(we know that already), where some nodes are directed and connected in one direction(prereq1 -> prereq2 -> preqreq3...) , not all nodes before 'v' are the prerequisites of v, a subset of them are the prerequisites.
+
+What matters the most is to compute the answer/processing of nodes should follow the topological order.
+
+In graphs we know the direction (u-> v), we use Iteration(loops), which is a 1 pass algorithm, so we traverse the topological order from left to right and compute answer while doing that.
+
+In DP, we know the direction (u <- v), so we use RECURSION, which is a 2 pass algorithm, forms connection first in a direction, and then compute/process answer in the 2nd pass/in the opposite direction. So to make sure recursion fills answer in topological order (left -> right), we apply recursion from right side (right -> left), so the processing happens from left -> right in correct topological order.
+
+ITERATIVE TRAVERSAL(left->right) in GRAPHS, as we know (u->v) = RECURSIVE TRAVERSAL(right-> left) in DP as we know (u<-v)
+
 
 
