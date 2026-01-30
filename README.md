@@ -586,3 +586,50 @@ ITERATIVE TRAVERSAL(left->right) in GRAPHS, as we know (u->v) = RECURSIVE TRAVER
 
 
 
+### MULTI SSSP with MEMO VS APSP FLOYD WARSHALL
+Both approaches compute All-Pairs Shortest Paths (APSP).
+
+#### Floyd–Warshall
+
+Dynamic Programming over intermediates
+
+Computes all pairs at once
+
+Time: O(V³)
+
+Space: O(V²)
+
+#### Multiple Dijkstra + memoization
+
+Run SSSP from each source as needed
+
+Cache the results
+
+Time: O(V · (V + E)logV)
+
+Space: O(V²)
+
+What is Lazy APSP via repeated Djikstra? 
+4️⃣ What you should internalize (important)
+
+Your code proves this principle:
+
+Floyd–Warshall is not magic.
+It’s just APSP with a particular DP ordering.
+
+Multiple Dijkstra + memoization is:
+
+equally valid
+
+often more flexible
+
+sometimes faster
+
+but easier to get wrong (as you saw)
+Mutli Djikstra can be applied to solve APSP iff
+1) Non - Negative weighted edges
+2) Call Djikstra for every distinct source, but let it run completely, as it is SSSP algorithm, that guarantees to find the shortest path between source and every other vertex.
+3) Also if you are doing multi Dijkstra, try to do lazy computation, DON'T precompute for every source beforehand, only compute for those distinct 'u' which are required when you encounter u -> v
+
+
+
