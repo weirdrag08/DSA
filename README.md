@@ -631,7 +631,7 @@ Mutli Djikstra can be applied to solve APSP iff
 2) Call Djikstra for every distinct source, but let it run completely, as it is SSSP algorithm, that guarantees to find the shortest path between source and every other vertex.
 3) Also if you are doing multi Dijkstra, try to do lazy computation, DON'T precompute for every source beforehand, only compute for those distinct 'u' which are required when you encounter u -> v
 
-##Optimal BST depth elimination trick generalised. How to derive it mathematically (it depends on the cost function)
+## Optimal BST depth elimination trick generalised. How to derive it mathematically (it depends on the cost function)
 <img width="530" height="341" alt="image" src="https://github.com/user-attachments/assets/8884ab23-8916-46c3-bbf9-09dbe8b3fb68" />
 <img width="479" height="233" alt="image" src="https://github.com/user-attachments/assets/e0a14f9b-2db8-4c67-9a2e-26f3946ff45b" />
 <img width="393" height="284" alt="image" src="https://github.com/user-attachments/assets/26917cc3-a1c4-4d8d-8344-cde9d5b9a11c" />
