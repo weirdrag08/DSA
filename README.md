@@ -7,13 +7,16 @@ Codes + problem explanation
 2) Practice JUMP DP questions more or the DP questions where memo keys can be dropped via loop or binary search. DO BOTH - COAXIAL / SUBSEQUENCE WITH JUMPS (SORT ON 1 PARAM, binary search on that sorted param with another param being the query, like PROJECTS CSES) and 2 AXIS (LIS TYPE, sort in 1 direction, LIS on OTHER)
 
 3) IMPORTANT OBSERVATION-
+   
 **"Look Forward Only" Assumption Always Works:** When you process from left to right sequentially, you are moving along a directed timeline.The Past is Locked: By the time your recursion or loop lands on index i, all elements from 0 to i-1 have already made their choices. Those choices are baked into the current path of your recursive tree.
 
 **The Rules Cannot Fabricate Violation:** As you perfectly noted, skipping an element never breaks a rule. It's only the include/take choice that can threaten the validity of your sequence.
 
 **The Forward-Facing Guard:** Therefore, when standing at i, you never need to look back at i-1 to see what it did. You only need to look at your current available actions and ensure your next forward step (i+1 or i+2) doesn't violate the rules. 
 So for example in (rob house only if previous not looted, include only in knapsack if it has capacity.
+
 **for LIS you can think in 2 ways: (IMPORTANT)** 
+
 include in LIS only when it greater than previous value (state machine variation thinking, prevIdx maintained), here state = dp(idx, prevIdx) 
 OR via jump dp variation, if included the current element in set, only jump to next valid indices, here state = dp(idx)
 **exclusion is always safe in subsequence dp as it doesn't have the potential to invalidate the sequence.**
