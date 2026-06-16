@@ -54,7 +54,9 @@ If a problem **introduces values inside the skipped intervals**, you **must aban
 **Instead of iterating through projects, you iterate through days** (or the sequence of elements):
 
 // If you are on Day `d`:
+
 int skipDay = dailyStipend + dp(d + 1); 
+
 int takeProject = projectValue + dp(projectEndDay + 1); // This jump is valid because the project locks you out completely
 
 int maxEarnings = max(skipDay, takeProject);
