@@ -7,6 +7,59 @@ Codes + problem explanation
 2) Practice JUMP DP questions more or the DP questions where memo keys can be dropped via loop or binary search. DO BOTH - COAXIAL / SUBSEQUENCE WITH JUMPS (SORT ON 1 PARAM, binary search on that sorted param with another param being the query, like PROJECTS CSES) and 2 AXIS (LIS TYPE, sort in 1 direction, LIS on OTHER)
 
 3) IMPORTANT OBSERVATION-
+**"Look Forward Only" Assumption Always Works:** When you process from left to right sequentially, you are moving along a directed timeline.The Past is Locked: By the time your recursion or loop lands on index i, all elements from 0 to i-1 have already made their choices. Those choices are baked into the current path of your recursive tree.
+
+**The Rules Cannot Fabricate Violation:** As you perfectly noted, skipping an element never breaks a rule. It's only the include/take choice that can threaten the validity of your sequence.
+
+**The Forward-Facing Guard:** Therefore, when standing at i, you never need to look back at i-1 to see what it did. You only need to look at your current available actions and ensure your next forward step (i+1 or i+2) doesn't violate the rules. 
+So for example in (rob house only if previous not looted, include only in knapsack if it has capacity.
+**for LIS you can think in 2 ways: (IMPORTANT)** 
+include in LIS only when it greater than previous value (state machine variation thinking, prevIdx maintained), here state = dp(idx, prevIdx) 
+OR via jump dp variation, if included the current element in set, only jump to next valid indices, here state = dp(idx)
+**exclusion is always safe in subsequence dp as it doesn't have the potential to invalidate the sequence.**
+
+
+
+    [Level 1: Explicit State Machine]  -->  `dp[i][canLoot]` 
+                                            (You use a boolean guard to check if the past allows you to act)
+                │
+                ▼
+    [Level 2: Structural Jump DP]      -->  `dp[i] = max(take + dp[i+2], skip + dp[i+1])`
+                                            (You enforce safety by mathematically jumping past danger zones)
+                │
+                ▼
+    [Level 3: Sequential Timeline]     -->  "I am at 'i'. The past is sealed. I only look forward."
+                                            (The ultimate abstraction for speed and intuition)
+
+
+**JUMP DP OBSERVATION**
+You are exactly right: in problems like CSES Projects or Weighted Job Scheduling, we **jump forward using binary search because the intermediate intervals are completely locked out. Skipping them via a jump is just a shortcut to avoid an empty chain of "do nothing" states that waste stack space**.
+
+To answer your brilliant question: **No, you cannot safely jump if the skipped states add their own independent value or choices.If the skipped intervals contain decisions that could increase your score—even while the main option is locked out—jumping over them will cause you to completely miss the optimal answer.**
+
+Here is how such a problem exists, why the jump breaks, and how we fix the state to handle it.
+A Problem That Breaks the "Jump"Imagine a variation of the CSES Projects problem: Projects with Daily Stipends.You want to attend high-paying projects (Intervals).If you attend Project A, you cannot attend any other project until Project A finishes (standard overlap rule).The Twist: For every single day you are not actively working on a project, the company pays you a daily baseline stipend (e.g., ₹100 per day).
+
+**Why the Jump Fails Here?**
+Let's say Project A runs from Day 1 to Day 10.If you choose to take Project A, you cannot take any other project during this window.With a standard jump: Your DP would transition directly to the next valid project starting on Day 11.
+Why this is wrong: You completely skipped Days 2 through 10. While you couldn't start new projects, those intermediate days might have offered choices or values (like collecting that daily stipend or matching with a unique short-term bonus) that you just completely erased from history.
+
+<img width="541" height="288" alt="image" src="https://github.com/user-attachments/assets/97e35aed-b917-4b21-a96d-c96168d7b079" />
+
+How to Solve the "Active Zone" Problem
+If a problem **introduces values inside the skipped intervals**, you **must abandon the binary search** jump and use a linear timeline DP.
+**Instead of iterating through projects, you iterate through days** (or the sequence of elements):
+
+// If you are on Day `d`:
+int skipDay = dailyStipend + dp(d + 1); 
+int takeProject = projectValue + dp(projectEndDay + 1); // This jump is valid because the project locks you out completely
+
+int maxEarnings = max(skipDay, takeProject);
+
+
+<img width="500" height="149" alt="image" src="https://github.com/user-attachments/assets/5e169861-6748-4a1b-a75b-fc431254aa1f" />
+
+
 ### Assign less things to more people => generates PERMUTATION and you have track state of assignment into further states.
 **Permutation or state tracking are enemies of DP, you cannot optimise:**
 1) permutation = each path in tree, is unique => so no common subproblems
